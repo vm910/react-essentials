@@ -1,6 +1,7 @@
-import TabButton from "./TabButton";
 import TabContent from "./TabContent";
+import TabButton from "./TabButton";
 import Section from "./Section";
+import Tabs from "./Tabs";
 
 import { useState } from "react";
 
@@ -14,10 +15,9 @@ export default function Examples() {
   }
 
   return (
-    <Section id="examples">
-      <h2>Examples</h2>
-      <menu>
-        {buttons.map((button) => (
+    <Section id="examples" title="Examples">
+      <Tabs
+        buttons={buttons.map((button) => (
           <TabButton
             isSelected={tabContent === button}
             key={button}
@@ -26,9 +26,10 @@ export default function Examples() {
             {button}
           </TabButton>
         ))}
-      </menu>
-      {!tabContent && <p>Please select a topic</p>}
-      {tabContent && <TabContent selectedTopic={tabContent} />}
+      >
+        {!tabContent && <p>Please select a topic</p>}
+        {tabContent && <TabContent selectedTopic={tabContent} />}
+      </Tabs>
     </Section>
   );
 }
