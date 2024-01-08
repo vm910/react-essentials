@@ -3,12 +3,17 @@ import Header from "./components/Header";
 import CoreConcept from "./components/CoreConcept";
 import TabButton from "./components/TabButton";
 
+import { useState } from "react";
+
 const buttons = ["Components", "JSX", "Props", "State"];
 
 function App() {
+  const [tabContent, setTabContent] = useState("Please click a button");
+
   function handleClick(clickedButton) {
-    console.log(`clicked ${clickedButton}`);
+    setTabContent(clickedButton);
   }
+
   return (
     <div>
       <Header />
@@ -31,6 +36,7 @@ function App() {
             ))}
           </menu>
         </section>
+        {tabContent}
       </main>
     </div>
   );
