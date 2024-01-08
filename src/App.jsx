@@ -16,7 +16,7 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <Header />
       <main>
         <section id="core-concepts">
@@ -44,7 +44,7 @@ function App() {
         {!tabContent && <p>Please select a topic</p>}
         {tabContent && <TabContent selectedTopic={tabContent} />}
       </main>
-    </div>
+    </>
   );
 }
 
